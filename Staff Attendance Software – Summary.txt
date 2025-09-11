@@ -1,0 +1,52 @@
+Staff Attendance Software – Summary
+Purpose:
+Automates staff attendance tracking via SMS using Google Sheets, Apps Script, and MacroDroid.
+
+Key Features
+Staff Registry:
+
+A dedicated Staff sheet holds each staff member’s name and phone number.
+Only SMS from registered numbers are processed; others are ignored.
+Attendance Actions:
+
+Staff mark attendance by sending SMS with actions: IN, OUT, BREAK IN, BREAK OUT.
+MacroDroid forwards each SMS to a Google Apps Script Web App.
+Break Management:
+
+Breaks are logged in real time.
+Only one open break at a time is allowed per staff.
+Staff must close breaks before marking OUT.
+Error Handling & Feedback:
+
+Invalid actions (e.g., OUT with open break, multiple breaks) are logged to a Logs sheet.
+Staff receive immediate SMS feedback on errors or ignored actions.
+Attendance Sheets:
+
+Monthly attendance is tracked in dynamically created Monthly-YYYY-MM sheets.
+Each row shows IN time, OUT time, total break minutes, and net working hours.
+All times and durations are displayed in HH:MM format.
+Supervisor Controls:
+
+Supervisors can manually edit attendance records (e.g., missed OUT) in the Google Sheet.
+Security & Privacy:
+
+Only registered staff numbers can log attendance.
+Raw logs and error logs are protected.
+Workflow
+Staff sends an attendance SMS.
+MacroDroid forwards SMS to the script Web App.
+Script checks if the sender is registered.
+If not, SMS is ignored.
+If yes, attendance is processed; errors are logged and staff are notified via SMS.
+All attendance data is updated in Google Sheets for review and reporting.
+Tech Stack:
+
+Google Sheets (data store)
+Google Apps Script (business logic/webhook)
+MacroDroid (mobile automation, SMS → webhook + SMS feedback)
+Benefits:
+
+Real-time, automated attendance and break tracking
+Immediate error feedback to staff
+Secure and supervisor-editable records
+Simple, scalable, and uses free tools
